@@ -12,58 +12,58 @@ Different modeling approaches forecasting Chaotic Systems, including both neural
 - ## LSTM -----------------------------------
     For network training you can follow this:
     ```
-    python ex4_LSTM.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel LSTM_NEW
+    python  LSTM.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel LSTM_NEW
     ```
     Forecasting next state, from past `lookback` states utilizing a frozen model:
     ```
-    python ex4_LSTM.py --forecast --dataset test --batch 512 --frozenmodel LSTM32x32_b512_l20_PROPER --lookback 20
+    python  LSTM.py --forecast --dataset test --batch 512 --frozenmodel LSTM32x32_b512_l20_PROPER --lookback 20
     ```
 
 
     <p align="center">
-    <img src="images/lstm_preds.png" alt="Image" width="500" height="350">
-    <img src="images/lstm_regplot.png"  alt="Image" width="500" height="350">
+    <img src="images/lstm_preds.png" alt="Image" width="350" height="230">
+    <img src="images/lstm_regplot.png"  alt="Image" width="350" height="230">
     </p>
 
 
     Autoregressively forecast next `samples` states, from past `lookback` states:
     ```
-    python ex4_LSTM.py --autoregressive --samples 1000 --batch 1 --dataset test --frozenmodel LSTM32x32_b512_l20_PROPER --lookback 20
+    python  LSTM.py --autoregressive --samples 1000 --batch 1 --dataset test --frozenmodel LSTM32x32_b512_l20_PROPER --lookback 20
     ```
 
 
     <p align="center">
-    <img src="images/lstm_ar_preds.png" alt="Image" width="500" height="350">
-    <img src="images/lstm_ar_loss.png"  alt="Image" width="500" height="350">
+    <img src="images/lstm_ar_preds.png" alt="Image" width="350" height="230">
+    <img src="images/lstm_ar_loss.png"  alt="Image" width="350" height="230">
     </p>
 
 
 - ## GRU -----------------------------------
     For network training you can follow this:
     ```
-    python ex4_GRU.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel GRU_NEW --lookback 20
+    python  GRU.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel GRU_NEW --lookback 20
     ```
     Forecasting next state, from past `lookback` states utilizing a frozen model:
     ```
-    python ex4_GRU.py --forecast --dataset test --batch 512 --frozenmodel GRU32x32_b512_l20_PROPER --lookback 20
+    python  GRU.py --forecast --dataset test --batch 512 --frozenmodel GRU32x32_b512_l20_PROPER --lookback 20
     ```
 
 
     <p align="center">
-    <img src="images/gru_preds.png" alt="Image" width="500" height="350">
-    <img src="images/gru_regplot.png"  alt="Image" width="500" height="350">
+    <img src="images/gru_preds.png" alt="Image" width="350" height="230">
+    <img src="images/gru_regplot.png"  alt="Image" width="350" height="230">
     </p>
 
 
     Autoregressively forecast next `samples` states, from past `lookback` states:
     ```
-    python ex4_GRU.py --autoregressive --samples 1000 --batch 1 --dataset test --frozenmodel GRU32x32_b512_l20_PROPER --lookback 20
+    python  GRU.py --autoregressive --samples 1000 --batch 1 --dataset test --frozenmodel GRU32x32_b512_l20_PROPER --lookback 20
     ```
 
 
     <p align="center">
-    <img src="images/gru_ar_preds.png" alt="Image" width="500" height="350">
-    <img src="images/gru_ar_loss.png"  alt="Image" width="500" height="350">
+    <img src="images/gru_ar_preds.png" alt="Image" width="350" height="230">
+    <img src="images/gru_ar_loss.png" alt="Image" width="350" height="230">
     </p>
 
 
@@ -71,29 +71,29 @@ Different modeling approaches forecasting Chaotic Systems, including both neural
 - ## RNN -----------------------------------
     For network training you can follow this:
     ```
-    python ex4_RNN.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel RNN_NEW 
+    python  RNN.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel RNN_NEW 
     ```
     Forecasting next state, from past `lookback` states utilizing a frozen model:
     ```
-    python ex4_RNN.py --forecast --dataset test --batch 512 --frozenmodel RNN32x32_b512_l20_PROPER
+    python  RNN.py --forecast --dataset test --batch 512 --frozenmodel RNN32x32_b512_l20_PROPER
     ```
 
 
     <p align="center">
-    <img src="images/rnn_preds.png" alt="Image" width="500" height="350">
-    <img src="images/rnn_regplot.png"  alt="Image" width="500" height="350">
+    <img src="images/rnn_preds.png" alt="Image" width="350" height="230">
+    <img src="images/rnn_regplot.png"  alt="Image" width="350" height="230">
     </p>
 
 
     Autoregressively forecast next `samples` states, from past `lookback` states:
     ```
-    python ex4_RNN.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel RNN_NEW
+    python  RNN.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel RNN_NEW
     ```
 
 
     <p align="center">
-    <img src="images/rnn_ar_preds.png" alt="Image" width="500" height="350">
-    <img src="images/rnn_ar_loss.png"  alt="Image" width="500" height="350">
+    <img src="images/rnn_ar_preds.png" alt="Image" width="350" height="230">
+    <img src="images/rnn_ar_loss.png"  alt="Image" width="350" height="230">
     </p>
 
 
@@ -101,50 +101,50 @@ Different modeling approaches forecasting Chaotic Systems, including both neural
 
     Fast Training and Forecasting next state, from past `lookback` states:
     ```
-    python ex4_LGBM.py --train --forecast --dataset test --lookback 20
+    python  LGBM.py --train --forecast --dataset test --lookback 20
     ```
 
 
     <p align="center">
-    <img src="images/lgbm_preds.png" alt="Image" width="500" height="350">
-    <img src="images/lgbm_regplot.png"  alt="Image" width="500" height="350">
+    <img src="images/lgbm_preds.png" alt="Image" width="350" height="230">
+    <img src="images/lgbm_regplot.png"  alt="Image" width="350" height="230">
     </p>
 
 
     Autoregressively forecast next `samples` states, from past `lookback` states:
     ```
-    python ex4_LGBM.py --train --autoregressive --samples 1000 --dataset test --lookback 20
+    python  LGBM.py --train --autoregressive --samples 1000 --dataset test --lookback 20
     ```
 
 
     <p align="center">
-    <img src="images/lgbm_ar_preds.png" alt="Image" width="500" height="350">
-    <img src="images/lgbm_ar_loss.png"  alt="Image" width="500" height="350">
+    <img src="images/lgbm_ar_preds.png" alt="Image" width="350" height="230">
+    <img src="images/lgbm_ar_loss.png"  alt="Image" width="350" height="230">
     </p>
 
 - ## CATBOOST -----------------------------------
 
     Fast Training and Forecasting next state, from past `lookback` states:
     ```
-    python ex4_CATBOOST.py --train --forecast --dataset test --lookback 20
+    python  CATBOOST.py --train --forecast --dataset test --lookback 20
     ```
 
 
     <p align="center">
-    <img src="images/catboost_preds.png" alt="Image" width="500" height="350">
-    <img src="images/catboost_regplot.png"  alt="Image" width="500" height="350">
+    <img src="images/catboost_preds.png" alt="Image" width="350" height="230">
+    <img src="images/catboost_regplot.png"  alt="Image" width="350" height="230">
     </p>
 
 
     Autoregressively forecast next `samples` states, from past `lookback` states:
     ```
-    python ex4_CATBOOST.py --train --autoregressive --samples 1000 --dataset test --lookback 20
+    python  CATBOOST.py --train --autoregressive --samples 1000 --dataset test --lookback 20
     ```
 
 
     <p align="center">
-    <img src="images/catboost_ar_preds.png" alt="Image" width="500" height="350">
-    <img src="images/catboost_ar_loss.png"  alt="Image" width="500" height="350">
+    <img src="images/catboost_ar_preds.png" alt="Image" width="350" height="230">
+    <img src="images/catboost_ar_loss.png"  alt="Image" width="350" height="230">
     </p>
 
 
@@ -198,9 +198,9 @@ Since the data is already stationary, the hypothesis supports that plain differe
 In order to reproduce these experiments run the following:
 
 ```
-ORIGINAL: python ex4_LSTM.py --forecast --dataset test --batch 512 --frozenmodel LSTM32x32_b512_l20_PROPER
-DIFFERENCING: python ex4_LSTM.py --forecast --difference --dataset test --batch 512 --frozenmodel
-RELATIVE: python ex4_LSTM.py --forecast --relative --dataset test --batch 512 --frozenmodel 
+ORIGINAL: python  LSTM.py --forecast --dataset test --batch 512 --frozenmodel LSTM32x32_b512_l20_PROPER
+DIFFERENCING: python  LSTM.py --forecast --difference --dataset test --batch 512 --frozenmodel
+RELATIVE: python  LSTM.py --forecast --relative --dataset test --batch 512 --frozenmodel 
 ```
 
 ## AUTOREGRESSION
@@ -251,7 +251,7 @@ Things I tried:
 
 Reproduce this:
 ```
-python ex4_LSTM.py --autoregressive --samples 980 --batch 1 --dataset test --frozenmodel LSTM32x32_b512_l20_PROPER
+python  LSTM.py --autoregressive --samples 980 --batch 1 --dataset test --frozenmodel LSTM32x32_b512_l20_PROPER
 ```
 
 ## COMPLEXITIES
