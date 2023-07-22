@@ -1,9 +1,15 @@
 #  Chaotic Series Forecasting 
+```python
+
+Author -> Stefanos Ginargyros
+
+```
 
 
-`LSTM.py` ,  `GRU.py` , `RNN.py` , `TCNN.py`, `LGBM.py` , `CATBOOST.py`
 
 ## Structure :
+`LSTM.py` ,  `GRU.py` , `RNN.py` , `TCNN.py`, `LGBM.py` , `CATBOOST.py`
+
 Different modeling approaches forecasting Chaotic Systems, including both neural networks and tree-based models. These approaches will be presented separately for plots and commands, allowing for a detailed analysis. Additionally, we will compare the numerical results and discuss the models jointly to identify their strengths and weaknesses for the particular dataset alongside their computatational needs. We will also evaluate and discuss the effectiveness of differencing and relative target techniques, as well as other factors affecting performance.
 
 ## Numerical Benchmarks :
@@ -18,7 +24,7 @@ Numerical Benchmarks based on next step forecastings (t+1). LSTM has the best av
 | LGBM          | 0.0497        | 0.0622        | **5.7040**    | 0.9286        | 0.0039        | **0.06 secs per ESTIMATOR**|
 | CATBOOST      | **0.0492**       | **0.0616**    | 5.7116        | **0.9300**    | 0.0038        | 0.5 secs per ESTIMATOR    |
 
-- ## LSTM -----------------------------------
+- ## LSTM 
     For network training you can follow this:
     ```
     python  LSTM.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel LSTM_NEW
@@ -47,7 +53,7 @@ Numerical Benchmarks based on next step forecastings (t+1). LSTM has the best av
     </p>
 
 
-- ## GRU -----------------------------------
+- ## GRU 
     For network training you can follow this:
     ```
     python  GRU.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel GRU_NEW --lookback 20
@@ -77,7 +83,7 @@ Numerical Benchmarks based on next step forecastings (t+1). LSTM has the best av
 
 
 
-- ## RNN -----------------------------------
+- ## RNN 
     For network training you can follow this:
     ```
     python  RNN.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel RNN_NEW 
@@ -106,7 +112,7 @@ Numerical Benchmarks based on next step forecastings (t+1). LSTM has the best av
     </p>
 
 
-- ## LGBM -----------------------------------
+- ## LGBM 
 
     Fast Training and Forecasting next state, from past `lookback` states:
     ```
@@ -131,7 +137,7 @@ Numerical Benchmarks based on next step forecastings (t+1). LSTM has the best av
     <img src="images/lgbm_ar_loss.png"  alt="Image" width="350" height="230">
     </p>
 
-- ## CATBOOST -----------------------------------
+- ## CATBOOST 
 
     Fast Training and Forecasting next state, from past `lookback` states:
     ```
