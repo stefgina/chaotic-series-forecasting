@@ -1,0 +1,55 @@
+######################## SCRIPTS
+
+BEST LSTM:
+python LSTM.py --forecast --dataset test --batch 512 --frozenmodel LSTM32x32_b512_l20_PROPER
+python LSTM.py --autoregressive --samples 1000 --batch 1 --dataset test --frozenmodel LSTM32x32_b512_l20_PROPER
+python LSTM.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel LSTM_NEW 
+
+BEST LSTM DIFFERENCING (y2-y1):
+python LSTM.py --forecast --difference --dataset test --batch 512 --frozenmodel LSTM32x32_b512_l20_PROPER_DIFFERENCES
+
+BEST LSTM RELATIVE CHANGES (y2-y1)/y2:
+python LSTM.py --forecast --relative --dataset test --batch 512 --frozenmodel LSTM32x32_b512_l20_PROPER_RELATIVE_CHANGES
+
+BEST GRU:
+python GRU.py --forecast --dataset test --batch 512 --frozenmodel GRU32x32_b512_l20_PROPER --lookback 20
+python GRU.py --autoregressive --samples 1000 --batch 1 --dataset test --frozenmodel GRU32x32_b512_l20_PROPER --lookback 20
+python GRU.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel GRU_NEW --lookback 20
+
+RNN BEST:
+python RNN.py --forecast --dataset test --batch 512 --frozenmodel RNN32x32_b512_l20_PROPER
+python RNN.py --autoregressive --samples 1000 --batch 1 --dataset test --frozenmodel RNN32x32_b512_l20_PROPER
+python RNN.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel RNN_NEW
+
+CATBOOST TREE:
+python CATBOOST.py --train --forecast --dataset test
+python CATBOOST.py --train --autoregressive --samples 1000 --dataset test
+
+LGBM TREE:
+python LGBM.py --train --forecast --dataset test
+python LGBM.py --train --autoregressive --samples 1000 --dataset test
+
+
+
+######################## FLAGS
+
+These flags are universal for every script:
+
+--forecast', 'Forecast the next state (t+1)'
+--autoregressive', help='Autoregressively forecast the next 1000 states'
+--train', help='Train the model'
+--lookback', help='Lookback length', type=int, default=20
+--batch', help='Batch size', type=int, default=512
+--samples', help='Forecasting samples ahead', type=int, default=1000
+--dataset', help='Dataset to Infer on', type=str, default='test'
+--frozenmodel', help='The name of the frozen model', type=str, default='NEW'
+--difference', help='Differences in Labels (t2-t1)'
+--relative', help='Relative Changes in Labels (t2-t1)/t2'
+
+####################### System 
+
+Run on M1 chip
+Python 3.9.16 
+Clang 14.0.6 Compiler
+
+
