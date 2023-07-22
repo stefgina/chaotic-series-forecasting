@@ -3,13 +3,13 @@
 
 `LSTM.py` ,  `GRU.py` , `RNN.py` , `TCNN.py`, `LGBM.py` , `CATBOOST.py`
 
-##################################################################################################
+#############################################
 
 ## STRUCTURE :
 Different modeling approaches forecasting Chaotic Systems, including both neural networks and tree-based models. These approaches will be presented separately for plots and commands, allowing for a detailed analysis. Additionally, we will compare the numerical results and discuss the models jointly to identify their strengths and weaknesses for the particular dataset alongside their computatational needs. We will also evaluate and discuss the effectiveness of differencing and relative target techniques, as well as other factors affecting performance.
 
 
-- ## LSTM ----------------------------------------------------------------------------------
+- ## LSTM -----------------------------------
     For network training you can follow this:
     ```
     python ex4_LSTM.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel LSTM_NEW
@@ -38,7 +38,7 @@ Different modeling approaches forecasting Chaotic Systems, including both neural
     </p>
 
 
-- ## GRU ----------------------------------------------------------------------------------
+- ## GRU -----------------------------------
     For network training you can follow this:
     ```
     python ex4_GRU.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel GRU_NEW --lookback 20
@@ -68,7 +68,7 @@ Different modeling approaches forecasting Chaotic Systems, including both neural
 
 
 
-- ## RNN ----------------------------------------------------------------------------------
+- ## RNN -----------------------------------
     For network training you can follow this:
     ```
     python ex4_RNN.py --train --lookback 20 --forecast --batch 512 --dataset test --frozenmodel RNN_NEW 
@@ -97,7 +97,7 @@ Different modeling approaches forecasting Chaotic Systems, including both neural
     </p>
 
 
-- ## LGBM ----------------------------------------------------------------------------------
+- ## LGBM -----------------------------------
 
     Fast Training and Forecasting next state, from past `lookback` states:
     ```
@@ -122,7 +122,7 @@ Different modeling approaches forecasting Chaotic Systems, including both neural
     <img src="images/lgbm_ar_loss.png"  alt="Image" width="500" height="350">
     </p>
 
-- ## CATBOOST ----------------------------------------------------------------------------------
+- ## CATBOOST -----------------------------------
 
     Fast Training and Forecasting next state, from past `lookback` states:
     ```
