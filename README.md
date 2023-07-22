@@ -3,11 +3,20 @@
 
 `LSTM.py` ,  `GRU.py` , `RNN.py` , `TCNN.py`, `LGBM.py` , `CATBOOST.py`
 
-#############################################
-
-## STRUCTURE :
+## Structure :
 Different modeling approaches forecasting Chaotic Systems, including both neural networks and tree-based models. These approaches will be presented separately for plots and commands, allowing for a detailed analysis. Additionally, we will compare the numerical results and discuss the models jointly to identify their strengths and weaknesses for the particular dataset alongside their computatational needs. We will also evaluate and discuss the effectiveness of differencing and relative target techniques, as well as other factors affecting performance.
 
+## Numerical Benchmarks :
+Numerical Benchmarks based on next step forecastings (t+1). LSTM has the best avg run MSE in combined a) Next state Forecasting, b) Autoregressive forecasting, and it will be the model analyzed in the next section Differencing & Stationarity and the model that we will run experiments on.
+
+| MODEL         | MAE           | RMSE          |SMAPE          | R2            |MSE            |TIME                       |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------             |
+| LSTM          | 0.0495    | 0.0620        | 5.7326        | 0.9292        | **0.0038**    | 9.64secs per EPOCH        |
+| GRU           | 0.0496        | 0.0621        | 5.7443        | 0.9290        | 0.0039        | 8.91secs per EPOCH        |
+| RNN           | 0.0496        | 0.0622        | 5.7479        | 0.9288        | 0.0039        | 2.35secs per EPOCH        |
+| TCNN          | 0.0603        | 0.0756        | 7.0103        | 0.8947        | 0.0057        | 18.45secs per EPOCH       |
+| LGBM          | 0.0497        | 0.0622        | **5.7040**    | 0.9286        | 0.0039        | **0.06 secs per ESTIMATOR**|
+| CATBOOST      | **0.0492**       | **0.0616**    | 5.7116        | **0.9300**    | 0.0038        | 0.5 secs per ESTIMATOR    |
 
 - ## LSTM -----------------------------------
     For network training you can follow this:
@@ -148,23 +157,13 @@ Different modeling approaches forecasting Chaotic Systems, including both neural
     </p>
 
 
-## NUMERICAL COMPARISON :
-Numerical Benchmarks based on next step forecastings (t+1). LSTM has the best MSE in both a) Next state Forecasting, b) Autoregressive forecasting, so it will be the model analyzed in the next section Differencing & Stationarity and the model that we will run experiments on.
-
-| MODEL         | MAE           | RMSE          |SMAPE          | R2            |MSE            |TIME                       |
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------             |
-| LSTM          | **0.0495**    | 0.0620        | 5.7326        | 0.9292        | **0.0038**    | 9.64secs per EPOCH        |
-| GRU           | 0.0496        | 0.0621        | 5.7443        | 0.9290        | 0.0039        | 8.91secs per EPOCH        |
-| RNN           | 0.0496        | 0.0622        | 5.7479        | 0.9288        | 0.0039        | 2.35secs per EPOCH        |
-| TCNN          | 0.0603        | 0.0756        | 7.0103        | 0.8947        | 0.0057        | 18.45secs per EPOCH       |
-| LGBM          | 0.0497        | 0.0622        | **5.7040**    | 0.9286        | 0.0039        | **0.06 secs per ESTIMATOR**|
-| CATBOOST      | 0.0492        | **0.0616**    | 5.7116        | **0.9300**    | 0.0038        | 0.5 secs per ESTIMATOR    |
 
 
 
 
 
-## STATIONARITY & DIFFERENCING :
+
+## Stationarity & Differencing :
 
 The full given dataset (train, valid) was examined for Stationarity, utilizing the adfuller test. The Augmented Dickey-Fuller (ADF) test is a statistical test used to determine whether a time series is stationary or not. It is based on the assumption that a unit root is present in the autoregressive model of the time series. 
 
@@ -203,7 +202,7 @@ DIFFERENCING: python  LSTM.py --forecast --difference --dataset test --batch 512
 RELATIVE: python  LSTM.py --forecast --relative --dataset test --batch 512 --frozenmodel 
 ```
 
-## AUTOREGRESSION
+## Autoregression
 
 Autoregressive Forecasting of `samples` next states, based only on the first `lookback` states. Initially most of my models were performing poorly in this particular task, mostly due to lack of predictive capacity. Autoregression relies on close-to-perfect next state prediction, in order to work properly for a large enough `samples` number, or else it deviates fast.  
 Things I tried:     
@@ -254,7 +253,7 @@ Reproduce this:
 python  LSTM.py --autoregressive --samples 980 --batch 1 --dataset test --frozenmodel LSTM32x32_b512_l20_PROPER
 ```
 
-## COMPLEXITIES
+## Computational Complexity
 The complexities of the layers imprinted per EPOCH train timings as well:
 
 - Linear FLOPs = B x (N x M + M x N + M)
