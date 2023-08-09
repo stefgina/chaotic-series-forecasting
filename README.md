@@ -224,7 +224,7 @@ Things I tried:
 - Developed a custom `methodology` for neural networks, in order to capture the underlying `future` of each `lookback` sequence even though the output of the NN is 1 dimensional. We essentialy autoregress the next `Horizon` samples , compare the predictions with a preconstructed Horizon augmented Dataset, and update the weights for the next state based on the future states. That way we give more weight to the relationship of the prediction with the future values, and not only with the samples before. Had some interesting results with that on most models, and absolutely need to develop it further. For now I just managed to bump the SMAPE 1*10^-3 against original (still LGBM was better/lot faster), but I think there is potential to that.
 
     Logic:
-    ```
+    ```python
         # Loop through each Batch, through each Epoch
         for idx in range (args.Horizon):
             if idx == 0:
@@ -243,7 +243,7 @@ Things I tried:
 
         # Compare Autoregressive Predictions with Horizon Pre-Augmented Dataset.
         loss = criterion(outputs, target)
-        ```
+    ```
 
 - Amongst other things sota results can be achieved with `Reservoir Computers` (ESNs, NVARs) and  `GANs` (forGAN). GAns took approx half+ day on M1 Macbook for a system like this.
 
