@@ -5,7 +5,20 @@ Author -> Stefanos Ginargyros
 
 ```
 
+## Installation
+If you choose to install locally, i recommend installing [mini-conda](https://docs.conda.io/en/latest/miniconda.html) first (a more compact version of conda). Then proceed with these instructions.
 
+```bash
+
+    # clone, dirs, folders etc.
+    git clone https://github.com/stefgina/chaotic-series-forecasting.git
+    cd chaotic-series-forecasting
+
+    # create the env, and activate
+    conda create -n chaotic python=3.10
+    conda activate chaotic
+    pip install -r requirements.txt
+```
 
 ## Structure :
 `LSTM.py` ,  `GRU.py` , `RNN.py` , `TCNN.py`, `LGBM.py` , `CATBOOST.py`
