@@ -45,7 +45,7 @@ np.random.seed(seed)
 
 class Parameters():
     """
-    Class to hold model parameters.
+    Class that holds model parameters.
 
     Attributes:
     - description (str): Model description.
@@ -278,15 +278,12 @@ print("[INFO] Dataset Shape Incorporating LookBack - Horizon : ",train_dataset[0
 
 trainX = train_dataset[0].squeeze(-1)
 trainY = train_dataset[1].squeeze(-1)
-# trainY_permut_augmented = np.expand_dims(trainY_permut_augmented, axis=2)
 
 valX = val_dataset[0].squeeze(-1)
 valY = val_dataset[1].squeeze(-1)
-# valY = np.expand_dims(val_dataset_permut[1], axis=2)
 
 testX = test_dataset[0].squeeze(-1)
 testY = test_dataset[1].squeeze(-1)
-# testY = np.expand_dims(test_dataset_permut[1], axis=2)\
 
 print("[INFO] Expanded Datasets, Current Shape : ",trainX.shape, trainY.shape)
 
