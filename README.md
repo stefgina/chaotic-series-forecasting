@@ -230,7 +230,7 @@ Things I tried:
 
 - Used ARIMA, SARIMA etc (/w Lag Features and without). The results were not satisfactory at all, due to the simplicity of the models. 
 
-- Increased the capacity of my neural networks, from 1 `layer` to 2. As well as their `hidden states` from 8/16 to 32/64. In most of the cases 64 was plain overfit, while 16 couldnt catch the underlying complexity. Took the decision to keep 32 hidden states, with 2 `layers` across all the architectures to benchmark somehwat fairly/properly.
+- Increased the capacity of my neural networks, from 1 `layer` to 2. As well as their `hidden states` from 8/16 to 32/64. In most of the cases 64 was plain overfit, while 16 couldnt catch the underlying complexity. Decided to keep 32 hidden states, with 2 `layers` across all the architectures to benchmark somehwat fairly/properly.
 
 - Lookback initially was 10, with results bit worse that the current lookback of 20 (1* 10^-4 MSE difference). Gridsearched on values between 5 and 30 with a step of 5. Best results on most Neural Networks achieved with `lookback = 20`, while Tree-Based (LGBM, CATBOOST) perform better on `lookback = 30`.
 
